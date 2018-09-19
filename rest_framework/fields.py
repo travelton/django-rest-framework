@@ -19,7 +19,7 @@ from django import forms
 from django.forms import widgets
 from django.utils.encoding import is_protected_type
 from django.utils.translation import ugettext_lazy as _
-from django.utils.datastructures import SortedDict
+from rest_framework.datastructures import SortedDict
 from rest_framework import ISO_8601
 from rest_framework.compat import (timezone, parse_date, parse_datetime,
                                    parse_time)

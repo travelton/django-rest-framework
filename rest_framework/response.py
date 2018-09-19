@@ -5,10 +5,65 @@ it is initialized with unrendered data, instead of a pre-rendered string.
 The appropriate renderer is called during Django's template response rendering.
 """
 from __future__ import unicode_literals
-from django.core.handlers.wsgi import STATUS_CODE_TEXT
+#from django.core.handlers.wsgi import STATUS_CODE_TEXT
 from django.template.response import SimpleTemplateResponse
 from rest_framework.compat import six
 
+STATUS_CODE_TEXT = {
+    100: u'CONTINUE',
+    101: u'SWITCHING PROTOCOLS',
+    102: u'PROCESSING',
+    200: u'OK',
+    201: u'CREATED',
+    202: u'ACCEPTED',
+    203: u'NON-AUTHORITATIVE INFORMATION',
+    204: u'NO CONTENT',
+    205: u'RESET CONTENT',
+    206: u'PARTIAL CONTENT',
+    207: u'MULTI-STATUS',
+    208: u'ALREADY REPORTED',
+    226: u'IM USED',
+    300: u'MULTIPLE CHOICES',
+    301: u'MOVED PERMANENTLY',
+    302: u'FOUND',
+    303: u'SEE OTHER',
+    304: u'NOT MODIFIED',
+    305: u'USE PROXY',
+                           306: u'RESERVED',
+                            307: u'TEMPORARY REDIRECT',
+                             400: u'BAD REQUEST',
+                              401: u'UNAUTHORIZED',
+                               402: u'PAYMENT REQUIRED',
+                                403: u'FORBIDDEN',
+                                 404: u'NOT FOUND',
+                                  405: u'METHOD NOT ALLOWED',
+                                   406: u'NOT ACCEPTABLE',
+                                    407: u'PROXY AUTHENTICATION REQUIRED',
+                                     408: u'REQUEST TIMEOUT',
+                                      409: u'CONFLICT',
+                                       410: u'GONE',
+                                        411: u'LENGTH REQUIRED',
+                                         412: u'PRECONDITION FAILED',
+                                          413: u'REQUEST ENTITY TOO LARGE',
+                                           414: u'REQUEST-URI TOO LONG',
+                                            415: u'UNSUPPORTED MEDIA TYPE',
+    416: u'REQUESTED RANGE NOT SATISFIABLE',
+                                              417: u'EXPECTATION FAILED',
+                                               422: u'UNPROCESSABLE ENTITY',
+                                                423: u'LOCKED',
+                                                 424: u'FAILED DEPENDENCY',
+                                                  426: u'UPGRADE REQUIRED',
+    500: u'INTERNAL SERVER ERROR',
+                                                    501: u'NOT IMPLEMENTED',
+                                                     502: u'BAD GATEWAY',
+    503: u'SERVICE UNAVAILABLE',
+                                                       504: u'GATEWAY TIMEOUT',
+    505: u'HTTP VERSION NOT SUPPORTED',
+    506: u'VARIANT ALSO NEGOTIATES',
+    507: u'INSUFFICIENT STORAGE',
+    508: u'LOOP DETECTED',
+    510: u'NOT EXTENDED'
+}
 
 class Response(SimpleTemplateResponse):
     """

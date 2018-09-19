@@ -12,7 +12,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.http import QueryDict
 from django.http.multipartparser import parse_header
-from django.utils.datastructures import MultiValueDict
+from rest_framework.datastructures import MultiValueDict
 from rest_framework import HTTP_HEADER_ENCODING
 from rest_framework import exceptions
 from rest_framework.compat import BytesIO

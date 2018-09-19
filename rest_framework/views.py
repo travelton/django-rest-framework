@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 
 from django.core.exceptions import PermissionDenied
 from django.http import Http404, HttpResponse
-from django.utils.datastructures import SortedDict
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status, exceptions
 from rest_framework.compat import View
@@ -13,6 +12,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework.utils.formatting import get_view_name, get_view_description
+from rest_framework.datastructures import SortedDict
 
 
 class APIView(View):

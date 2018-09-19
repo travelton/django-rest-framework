@@ -20,7 +20,8 @@ back to the defaults.
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.utils import importlib
+#from django.utils import importlib
+import importlib
 
 from rest_framework import ISO_8601
 from rest_framework.compat import six
@@ -67,7 +68,7 @@ DEFAULTS = {
 
     # Pagination
     'PAGINATE_BY': None,
-    'PAGINATE_BY_PARAM': None,
+    'PAGINATE_BY_PARAM': 'page_size',
 
     # Authentication
     'UNAUTHENTICATED_USER': 'django.contrib.auth.models.AnonymousUser',

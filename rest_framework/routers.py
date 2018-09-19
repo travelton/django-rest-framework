@@ -17,12 +17,11 @@ from __future__ import unicode_literals
 
 from collections import namedtuple
 from rest_framework import views
-from rest_framework.compat import patterns, url
+from rest_framework.compat import url
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.urlpatterns import format_suffix_patterns
-
 
 Route = namedtuple('Route', ['url', 'mapping', 'name', 'initkwargs'])
 
@@ -64,7 +63,7 @@ class BaseRouter(object):
     @property
     def urls(self):
         if not hasattr(self, '_urls'):
-            self._urls = patterns('', *self.get_urls())
+            self._urls = self.get_urls()
         return self._urls
 
 

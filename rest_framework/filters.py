@@ -84,6 +84,8 @@ class SearchFilter(BaseFilterBackend):
             return "%s__iexact" % field_name[1:]
         elif field_name.startswith('@'):
             return "%s__search" % field_name[1:]
+        elif field_name.startswith('-'):
+            return field_name[1:]
         else:
             return "%s__icontains" % field_name
 

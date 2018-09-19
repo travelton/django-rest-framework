@@ -18,7 +18,7 @@ from decimal import Decimal
 from django.core.paginator import Page
 from django.db import models
 from django.forms import widgets
-from django.utils.datastructures import SortedDict
+from datastructures import SortedDict
 from rest_framework.compat import get_concrete_model, six
 
 # Note: We do the following so that users of the framework can use this style:
@@ -652,11 +652,13 @@ class ModelSerializer(Serializer):
         else:
             # Reverse relationships are only included if they are explicitly
             # present in the `fields` option on the serializer
-            reverse_rels = opts.get_all_related_objects()
-            reverse_rels += opts.get_all_related_many_to_many_objects()
+            reverse_rels = opts.get_fields()
 
         for relation in reverse_rels:
-            accessor_name = relation.get_accessor_name()
+            try:
+                accessor_name = relation.get_accessor_name()
+            except:
+                continue
             if not self.opts.fields or accessor_name not in self.opts.fields:
                 continue
             related_model = relation.model

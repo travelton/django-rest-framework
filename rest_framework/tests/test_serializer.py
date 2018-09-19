@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.db.models.fields import BLANK_CHOICE_DASH
 from django.test import TestCase
-from django.utils.datastructures import MultiValueDict
+from datastructures import MultiValueDict
 from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers, fields, relations
 from rest_framework.tests.models import (HasPositiveIntegerAsChoice, Album, ActionItem, Anchor, BasicModel,
